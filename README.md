@@ -20,7 +20,5 @@ Uppdraget är att skapa en webbapplikation som liknar IMBD (Internet Movie Datab
 * Skapa funktionalitet för att lägga till/ta bort filmer i en favoritlista (använd localStorage för detta). Dessa filmer skall även kunna visas för användaren (tex som i mitt exempel, men kan även göras på en ny sida).
 * Använda er av MINST 2 moduler utöver er huvudjavascript-fil (alltså minst 3 javascript-filer totalt).
 
-### Verktyg/Resurser
-#### santosnr6.github.io
-Lärarens eget film-API är endast till för att ladda upp de inledande filmerna, samt trailers på startsidan innan användaren gör sin sökning. Hans API [hittar man här](https://santosnr6.github.io/Data/movies.json).
+
 

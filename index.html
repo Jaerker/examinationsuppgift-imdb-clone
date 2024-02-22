@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JAMDB</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
-<body>
-    
+
+<body class="body">
+    <header class="header">
+        <nav class="navbar">
+            <figure class="navbar__site-logo">
+                <img src="./img/site-logo.png" alt="website logo">
+            </figure>
+            <form action="" method="get" class="navbar__search-section">
+                <input type="search" name="searchValue" class="navbar__search-bar" id="searchValue">
+            </form>
+            <figure class="navbar__profile-icon">
+                <img src="./img/profile-logo.png" alt="profile image">
+
+            </figure>
+
+        </nav>
+
+    </header>
+    <main class="main">
+        <section class="trailer-background">
+            <section class="trailer-section">
+                <article class="trailer-section__carousel-wrapper" id="carouselWrapper">
+                    <section class="trailer-section__carousel" id="carousel">
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                </article>
+
+                <button class="trailer-buttons__arrow trailer-buttons__arrow--left" id="prev">
+                    <i class="fa-solid fa-chevron-left fa-2xl trailer-buttons__arrow-icon"></i>
+                </button>
+                <button class="trailer-buttons__arrow trailer-buttons__arrow--right" id="next">
+                    <i class="fa-solid fa-chevron-right fa-2xl trailer-buttons__arrow-icon"></i>
+                </button>
+            </section>
+        </section>
+        </section>
+
+        <article class="popular-movies">
+            <h2 class="popular-movies__header">Top 20 Movies</h2>
+            <ul class="popular-movie-list" id="movieList"></ul>
+        </article>
+
+    </main>
+    <script src="https://kit.fontawesome.com/adead78441.js" crossorigin="anonymous"></script>
+    <script type="module" src="./script/main.js"></script>
 </body>
+
 </html>

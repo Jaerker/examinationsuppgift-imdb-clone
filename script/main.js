@@ -12,23 +12,22 @@ window.addEventListener('load', () => {
     local.setup();
     const carouselRef = document.querySelector('#carousel');
     const carouselWrapperRef = document.querySelector('#carouselWrapper');
-
+    const searchFormRef = document.querySelector('#searchForm');
 
     document.querySelector('#prev').addEventListener('click', () => {
-        if(data.direction === -1){
-            data.direction = 1; //Vi åker vänster i karusellen, därav åt positivt håll i translateX
-            carouselRef.append(carouselRef.firstElementChild);
+        if(local.direction === -1){
+            local.direction = 1; //Vi åker vänster i karusellen, därav åt positivt håll i translateX
+            carouselRef.appendChild(carouselRef.firstElementChild);
 
         }
-        //carouselRef.prepend(carouselRef.lastElementChild);
         carouselWrapperRef.style.justifyContent = 'flex-end';
         carouselRef.style.transform = 'translate(20%)';
 
     });
 
     document.querySelector('#next').addEventListener('click', () => {
-        if(data.direction === 1){
-            data.direction = -1; //Vi åker höger i karusellen, därav åt negativt håll i translateX
+        if(local.direction === 1){
+            local.direction = -1; //Vi åker höger i karusellen, därav åt negativt håll i translateX
             carouselRef.prepend(carouselRef.lastElementChild);
         
         }
@@ -43,20 +42,26 @@ window.addEventListener('load', () => {
 
     carouselRef.addEventListener('transitionend', () => {
         console.log(data);
-        if(data.direction === -1){
+        if(local.direction === -1){
             carouselRef.appendChild(carouselRef.firstElementChild);
 
         }
-        else if(data.direction === 1){
+        else if(local.direction === 1){
             carouselRef.prepend(carouselRef.lastElementChild);
         }
 
         carouselRef.style.transition = 'none';
         carouselRef.style.transform = 'translate(0)';
         setTimeout(()=>{
-            carouselRef.style.transition = 'all .25s';
+            carouselRef.style.transition = 'transform .25s';
         });
     });
+
+    searchFormRef.addEventListener('submit', (e)=>{
+        e.preventDefault();
+    })
+
+
 
 });
 
@@ -86,6 +91,7 @@ async function setupCarousel() {
         const movie = list.pop();
 
         const iFrameElement = document.createElement('iframe');
+        iFrameElement.classList.add('slider__moving-pictures');
         // iFrameElement.src=movie.trailer_link; // Denna funkar också, men blir lite mindre issues med third party cookies med mitt alternativ, och jag har lite svårt för alla slags felmeddelanden
         iFrameElement.src=`${movie.trailer_link.slice(0, 19)}-nocookie${movie.trailer_link.slice(19)}`;
         iFrameElement.title = movie.title;
@@ -189,9 +195,5 @@ async function setupDetailsForMovie(id){
 
 
     return mainStoringElement;
-
-}
-
-function setupLocalStorage() {
 
 }

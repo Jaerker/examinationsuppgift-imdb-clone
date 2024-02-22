@@ -92,7 +92,7 @@
     width: 500%;
     height:100%;
     flex-shrink: 0;
-    transition: all var(--transition-speed);
+    transition: transform var(--transition-speed);
 }
 
 .slider__element {
@@ -103,6 +103,7 @@
     flex:1;
 
 }
+
 
 
 

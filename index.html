@@ -12,15 +12,21 @@
     <header class="header">
         <nav class="navbar">
             <figure class="navbar__site-logo">
-                <img src="./img/site-logo.png" alt="website logo">
+                <h1>
+                    <img src="./img/site-logo.png" alt="graphics of the website logo">
+                </h1>
             </figure>
             <form action="" method="get" class="navbar__search-section" id="searchForm">
-                <input type="search" name="searchValue" class="navbar__search-bar" id="searchValue">
+                <input type="search" name="searchValue" class="navbar__search-bar" placeholder="Search for any movie here!" id="searchValue">
             </form>
-            <figure class="navbar__profile-icon">
-                <img src="./img/profile-logo.png" alt="profile image">
-
-            </figure>
+                <figure class="navbar__profile-icon">
+                    <a href="#">
+                        <img src="./img/profile-logo.png" alt="image for profile link">
+                    </a>
+                    <p class="navbar__profile-link">PROFILE</p>
+    
+                </figure>
+    
 
         </nav>
 
@@ -38,10 +44,10 @@
                 </article>
 
                 <button class="trailer-buttons__arrow trailer-buttons__arrow--left" id="prev">
-                    <i class="fa-solid fa-chevron-left fa-2xl trailer-buttons__arrow-icon"></i>
+                    <img src="./img/chevron-left.png" class="trailer-buttons__arrow-icon" alt="graphics of an arrow pointing to the left for a button for previous video."></i>
                 </button>
                 <button class="trailer-buttons__arrow trailer-buttons__arrow--right" id="next">
-                    <i class="fa-solid fa-chevron-right fa-2xl trailer-buttons__arrow-icon"></i>
+                    <img src="./img/chevron-right.png" class="trailer-buttons__arrow-icon" alt="graphics of an arrow pointing to the right for a button for next video."></i>
                 </button>
             </section>
         </section>
@@ -53,7 +59,6 @@
         </article>
 
     </main>
-    <script src="https://kit.fontawesome.com/adead78441.js" crossorigin="anonymous"></script>
     <script type="module" src="./script/main.js"></script>
 </body>
 

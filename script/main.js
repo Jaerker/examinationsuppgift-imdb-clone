@@ -41,7 +41,6 @@ window.addEventListener('load', () => {
     
 
     carouselRef.addEventListener('transitionend', () => {
-        console.log(data);
         if(local.direction === -1){
             carouselRef.appendChild(carouselRef.firstElementChild);
 
@@ -92,7 +91,6 @@ async function setupCarousel() {
 
         const iFrameElement = document.createElement('iframe');
         iFrameElement.classList.add('slider__moving-pictures');
-        // iFrameElement.src=movie.trailer_link; // Denna funkar också, men blir lite mindre issues med third party cookies med mitt alternativ, och jag har lite svårt för alla slags felmeddelanden
         iFrameElement.src=`${movie.trailer_link.slice(0, 19)}-nocookie${movie.trailer_link.slice(19)}`;
         iFrameElement.title = movie.title;
         iFrameElement.loading = 'eager';
@@ -125,6 +123,7 @@ async function setupMostPopularMovies() {
         const moviePosterElement = document.createElement('img');
         moviePosterElement.classList.add('popular-movie__poster');
         moviePosterElement.src = movie.poster;
+        moviePosterElement.alt = `Image of the movie-poster.`;
 
 
         const movieDetails = await setupDetailsForMovie(movie.imdbid);
@@ -139,12 +138,14 @@ async function setupDetailsForMovie(id){
     const movieData = await agent.omdb.details(id);
     const mainStoringElement    = document.createElement('section');    
     const   containerElement      = document.createElement('section');
-    const   iconElement           = document.createElement('i');
+    const   iconElement           = document.createElement('img');
     const ratingElement         = document.createElement('p');
 
     mainStoringElement.classList.add('popular-movie__information');
     containerElement.classList.add('popular-movie__imdb-star-rating');
-    iconElement.classList.add('popular-movie__star-icon','fa-solid','fa-star', 'fa-lg');
+    iconElement.classList.add('popular-movie__star-icon');
+    iconElement.src = '../img/star-solid.png';
+    iconElement.alt = 'graphics of a star.';
     ratingElement.classList.add('popular-movie__imdb-rating');
     ratingElement.textContent = movieData.imdbRating;
 
@@ -152,42 +153,51 @@ async function setupDetailsForMovie(id){
     mainStoringElement.append(containerElement);
 
     const watchlistContainerElement = document.createElement('section');
-    const watchlistIconElement = document.createElement('i');
+    const watchlistPlusIconElement = document.createElement('img');
+    const watchlistMinusIconElement = document.createElement('img');
     watchlistContainerElement.classList.add('movie-button__watchlist--small', 'movie-button__watchlist');
-    
-    if(data.watchlist?.some(x => x.imdbID === id)){
-        watchlistIconElement.classList.add('fa-solid', 'fa-minus','fa-xl','movie-button__watchlist-icon');
+    watchlistPlusIconElement.classList.add('movie-button__watchlist-icon', data.watchlist?.some(x => x.imdbID === id) ? 'movie-button__watchlist-icon--invisible' : null);
+    watchlistPlusIconElement.src = '../img/plus-sign.png';
+    watchlistPlusIconElement.alt = 'graphics of a plus sign for adding movie to watchlist.';
+    watchlistMinusIconElement.classList.add('movie-button__watchlist-icon', data.watchlist?.some(x => x.imdbID === id) ? null : 'movie-button__watchlist-icon--invisible');
+    watchlistMinusIconElement.src = '../img/minus-sign.png';
+    watchlistMinusIconElement.alt = 'graphics of a minus sign.';
 
-    }else{
-        watchlistIconElement.classList.add('fa-solid', 'fa-plus','fa-xl','movie-button__watchlist-icon');
 
-    }
     watchlistContainerElement.addEventListener('click',()=> {
-        data.watchlist?.some(x => x.imdbID === id) ? local.watchlist.remove(movieData) : local.watchlist.add(movieData);
-        watchlistIconElement.classList.toggle('fa-minus');        
-        watchlistIconElement.classList.toggle('fa-plus');  
+    data.watchlist?.some(x => x.imdbID === id) ? local.watchlist.remove(movieData) : local.watchlist.add(movieData);
+
+
+    watchlistMinusIconElement.classList.toggle('movie-button__watchlist-icon--invisible');
+    watchlistPlusIconElement.classList.toggle('movie-button__watchlist-icon--invisible');
     });
 
     
-    watchlistContainerElement.append(watchlistIconElement);
+    watchlistContainerElement.append(watchlistPlusIconElement);
+    watchlistContainerElement.append(watchlistMinusIconElement);
     mainStoringElement.append(watchlistContainerElement);
 
     const favouritesContainerElement = document.createElement('section');
-    const favouritesIconElement = document.createElement('i');
+    const favouritesOutlineIconElement = document.createElement('img');
+    const favouritesSolidIconElement = document.createElement('img');
     
     favouritesContainerElement.classList.add('movie-button__favourites');
-    if(data.favourites?.some(x => x.imdbID === id)){
-        favouritesIconElement.classList.add('fa-solid','fa-star','fa-xl','movie-button__favourites-icon');
-    }
-    else{
-        favouritesIconElement.classList.add('fa-regular','fa-star','fa-xl','movie-button__favourites-icon');
-    }
+    favouritesOutlineIconElement.classList.add('movie-button__favourites-icon');
+    favouritesOutlineIconElement.src = '../img/star-outline.png'; 
+    favouritesOutlineIconElement.alt = 'graphics of the outline of a star.'; 
+
+    favouritesSolidIconElement.classList.add('movie-button__favourites-icon', data.favourites?.some(x => x.imdbID === id) ? 'movie-button__favourites-icon--isInFavourites' : 'movie-button__favourites-icon--isNotInFavourites');
+    favouritesSolidIconElement.src = '../img/star-solid.png'; 
+    favouritesSolidIconElement.alt = 'graphics of a star.'; 
+
+
+
     favouritesContainerElement.addEventListener('click', () => {
         data.favourites?.some(x => x.imdbID === id) ? local.favourites.remove(movieData) : local.favourites.add(movieData);
-        favouritesIconElement.classList.toggle('fa-solid');        
-        favouritesIconElement.classList.toggle('fa-regular');        
-    });
-    favouritesContainerElement.append(favouritesIconElement);
+        favouritesSolidIconElement.classList.toggle('movie-button__favourites-icon--isNotInFavourites');        
+        });
+    favouritesContainerElement.append(favouritesOutlineIconElement);
+    favouritesContainerElement.append(favouritesSolidIconElement);
     mainStoringElement.append(favouritesContainerElement);
     
 

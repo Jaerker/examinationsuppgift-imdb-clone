@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMDB - PROFILE</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body class="body">
+    <header class="header">
+        <nav class="navbar">
+            <figure class="navbar__site-logo">
+                <img src="./img/site-logo.png" alt="website logo">
+            </figure>
+            <form action="" method="get" class="navbar__search-section" id="searchForm">
+                <input type="search" name="searchValue" class="navbar__search-bar" placeholder="Search for any movie up here!" id="searchValue">
+            </form>
+                <figure class="navbar__profile-icon">
+                    <a href="#">
+                        <img src="./img/profile-logo.png" alt="profile image">
+                    </a>
+                    <p class="navbar__profile-link">PROFILE</p>
+    
+                </figure>
+    
+
+        </nav>
+
+    </header>
+    <main class="main">
+
+        <article class="popular-movies">
+            <h2 class="popular-movies__header">Top 20 Movies</h2>
+            <ul class="popular-movie-list" id="movieList"></ul>
+        </article>
+
+    </main>
+    <script src="https://kit.fontawesome.com/adead78441.js" crossorigin="anonymous"></script>
+    <script type="module" src="./script/main.js"></script>
+</body>
+
+</html>

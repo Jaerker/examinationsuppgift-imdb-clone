@@ -1,6 +1,6 @@
 import apiKey from './secretData.js';
 const jespersApi = 'https://santosnr6.github.io/Data/movies.json';
-const omdbApi = `http://www.omdbapi.com/?apikey=${apiKey}&`;
+const omdbApi = `http://www.omdbapi.com/?apikey=${apiKey}`;
 
 
 /**
@@ -11,12 +11,12 @@ const omdbApi = `http://www.omdbapi.com/?apikey=${apiKey}&`;
 
 
 const requests = {
-    get: async (url) => await fetch(url).then(res => {return res.json()}).catch((e)=>{return e.json()}),
+    get: async (url) => await fetch(url).then(res =>  res.json()).catch((e)=>{return e.json()}),
 }
 
 const omdb = {
-    search: async (searchValue, page=1) => await requests.get(`${omdbApi}&s=${searchValue}&p=${page}`),
-    details: async (movieId) => await requests.get(`${omdbApi}&i=${movieId}&plot=full`), 
+    search: async (searchValue, page=1) => await requests.get(`${omdbApi}&s=${searchValue.replaceAll(' ', '-')}&p=${page}`),
+    details: async (movieId) => await requests.get(`${omdbApi}&plot=full&i=${movieId}`), 
 }
 
 

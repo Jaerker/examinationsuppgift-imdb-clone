@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body class="body">
+<body class="body" id="body">
     <header class="header">
         <nav class="navbar">
             <figure class="navbar__site-logo">
@@ -20,7 +20,7 @@
                 <input type="search" name="searchValue" class="navbar__search-bar" placeholder="Search for any movie here!" id="searchValue">
             </form>
                 <figure class="navbar__profile-icon">
-                    <a href="#">
+                    <a href="./pages/profile.html">
                         <img src="./img/profile-logo.png" alt="image for profile link">
                     </a>
                     <p class="navbar__profile-link">PROFILE</p>
@@ -53,9 +53,21 @@
         </section>
         </section>
 
-        <article class="popular-movies">
+        <article class="popular-movies" id="popularMovies">
             <h2 class="popular-movies__header">Top 20 Movies</h2>
-            <ul class="popular-movie-list" id="movieList"></ul>
+            <ul class="popular-movies__list" id="movieList"></ul>
+        </article>
+        <article class="search-results search-results--hidden d-none" id="searchResults">
+            <h2 class="search-results__header">Search results</h2>
+            <ul class="search-results__movie-list" id="searchResultList"></ul>
+
+
+        </article>
+        <article class="detailed-movie__wrapper" id="detailsWrapper">
+            <section class="detailed-movie__box" id="movieDetails">
+
+            </section>
+
         </article>
 
     </main>

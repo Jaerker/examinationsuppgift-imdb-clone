@@ -18,17 +18,34 @@ const requests = {
         }
     },
 
-    post: (movie, array='favourites') => {
+    /**
+     * 
+     * @param {JSON} movie 
+     * @param {string} array 
+     * @returns either the part of the data array you ask for, or the movie that has been placed inside localstorage.
+     */
+    post: (movie, array) => {
         const localData = requests.get();
 
-        if(!movie){
-            return console.log('Error, movie not found');
-        }
-        localData[array].push(movie);
-        
+        if(!array){
+            localData.movieDetails = movie;
 
-        localStorage.setItem('data', JSON.stringify(localData));
-        return localData[array];
+            localStorage.setItem('data', JSON.stringify(localData));
+            return movie;
+
+
+        }
+        else{
+
+            if(!movie){
+                return console.log('Error, movie not found');
+            }
+            localData[array].push(movie);
+            
+    
+            localStorage.setItem('data', JSON.stringify(localData));
+            return localData[array];
+        }
     },
     
     del: (movie, array='favourites') => {
@@ -63,7 +80,8 @@ const data = {
         yearOfBirth:1990
     },
     favourites:[],
-    watchlist:[]
+    watchlist:[],
+    movieDetails:{}
 };
 
 
@@ -73,14 +91,15 @@ const local = {
     setup:() => {
         const localData = JSON.parse(localStorage.getItem('data'));
         if(!localData){
-            localStorage.setItem('data', JSON.stringify({favourites:[],watchlist:[],profile:{name:'',yearOfBirth:1990}}));
+            localStorage.setItem('data', JSON.stringify({favourites:[],watchlist:[],profile:{name:'',yearOfBirth:1990}, movieDetails:{}}));
         }
         else{
             data.favourites = localData.favourites;
             data.watchlist = localData.watchlist;
         }
     },
-    direction:-1
+    direction:-1,
+    setMovieDetails: (movie) => data.movieDetails = requests.post(movie)
 }
 
 export {local, data};

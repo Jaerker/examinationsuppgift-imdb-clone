@@ -535,7 +535,7 @@ html {
     text-align: center;
 }
 
-@media(min-width: 600px) {
+@media(min-width: 800px) {
 
     .navbar__profile-icon:hover img {
         transform: scale(1.1) rotate(105deg);
@@ -573,7 +573,7 @@ html {
     }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 800px) {
     .navbar {
         flex-flow: row wrap;
         justify-content: space-around;
@@ -582,7 +582,11 @@ html {
 
     .navbar__search-section {
         order: 3;
-        margin-top: 1.5rem;
+        margin: 1.5rem auto 0 auto;
+        width:100vw;
+        display:flex;
+
+
     }
 
     .navbar__search-bar {

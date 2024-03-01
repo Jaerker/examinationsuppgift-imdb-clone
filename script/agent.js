@@ -3,12 +3,6 @@ const jespersApi = 'https://santosnr6.github.io/Data/movies.json';
 const omdbApi = `http://www.omdbapi.com/?apikey=${apiKey}`;
 
 
-/**
- * Börjat använda mig av detta upplägget om jag gör en API uppkoppling, just för att simplifiera vissa steg som blir 
- * repeterande kod. 
- * 
- */
-
 
 const requests = {
     get: async (url) => await fetch(url).then(res =>  res.json()).catch((e)=>{return e.json()}),
@@ -24,7 +18,11 @@ const santos = {
     list: async () => await requests.get(jespersApi),
 }
 
-
+/** 
+ * Remember to add a secretData.js file inside the script file with this information: 
+ *      const apiKey = <YOUR-OMDB-API-KEY>;
+ *      export default apiKey;
+ */
 const agent = {
     omdb,
     santos

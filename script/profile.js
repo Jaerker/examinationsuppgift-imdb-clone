@@ -1,5 +1,5 @@
 'use strict'
-import {createDetailedListItem, setupDetailedMovie, setupMovieCard} from './functions.js';
+import { setupDetailedMovie, setupMovieCard } from './functions.js';
 import { data, local } from './local.js';
 
 

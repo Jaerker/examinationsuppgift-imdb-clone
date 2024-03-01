@@ -1,7 +1,7 @@
 'use strict'
 import agent from './agent.js';
-import { data, local } from './local.js';
-import { createDetailedListItem, setupMovieCard, setupDetailedMovie } from './functions.js';
+import { local } from './local.js';
+import { setupMovieCard, setupDetailedMovie } from './functions.js';
 
 
 

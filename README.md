@@ -1,4 +1,16 @@
 # EXAMINATIONSUPPGIFT
+
+## EGNA TANKAR
+Det blev lite spagettikod här och var, lite på grund av omständigheter hemma så man kan inte riktigt skylla ifrån sig. 
+
+För att projektet ska fungera i sin helhet när man klonar sidan så får man lägga till ***secretData.js*** i **script** mappen. där får man skriva in: 
+
+```
+const apiKey = <YOUR-OMDB-API-KEY>;
+export default apiKey;
+```
+
+
 ## Uppgift
 
 Uppdraget är att skapa en webbapplikation som liknar IMBD (Internet Movie Database) där användare kan söka efter filmer, visa detaljerad information om filmer och lägga till sina favoritfilmer med mera.

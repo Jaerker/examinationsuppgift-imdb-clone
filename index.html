@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JAMDB</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
-<body>
+
+<body class="body" id="body">
+    <header class="header">
+        <nav class="navbar">
+            <figure class="navbar__site-logo">
+                <h1>
+                    <img src="./img/site-logo.png" alt="graphics of the website logo">
+                </h1>
+            </figure>
+            <form action="" method="get" class="navbar__search-section" id="searchForm">
+                <input type="search" name="searchValue" class="navbar__search-bar" placeholder="Search for any movie here!" id="searchValue">
+            </form>
+                <figure class="navbar__profile-icon">
+                    <a href="./pages/profile.html">
+                        <img src="./img/profile-logo.png" alt="image for profile link">
+                    </a>
+                    <p class="navbar__profile-link">PROFILE</p>
     
+                </figure>
+    
+
+        </nav>
+
+    </header>
+    <main class="main">
+        <section class="trailer-background">
+            <section class="trailer-section">
+                <article class="trailer-section__carousel-wrapper" id="carouselWrapper">
+                    <section class="trailer-section__carousel" id="carousel">
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                        <section class="slider__element"></section>
+                </article>
+
+                <button class="trailer-buttons__arrow trailer-buttons__arrow--left" id="prev">
+                    <img src="./img/chevron-left.png" class="trailer-buttons__arrow-icon" alt="graphics of an arrow pointing to the left for a button for previous video."></i>
+                </button>
+                <button class="trailer-buttons__arrow trailer-buttons__arrow--right" id="next">
+                    <img src="./img/chevron-right.png" class="trailer-buttons__arrow-icon" alt="graphics of an arrow pointing to the right for a button for next video."></i>
+                </button>
+            </section>
+        </section>
+        </section>
+
+        <article class="popular-movies" id="popularMovies">
+            <h2 class="popular-movies__header">Top 20 Movies</h2>
+            <ul class="popular-movies__list" id="movieList"></ul>
+        </article>
+        <article class="search-results search-results--hidden d-none" id="searchResults">
+            <h2 class="search-results__header">Search results</h2>
+            <ul class="search-results__movie-list" id="searchResultList"></ul>
+
+
+        </article>
+        <article class="detailed-movie__wrapper" id="detailsWrapper">
+            <section class="detailed-movie__box" id="movieDetails">
+
+            </section>
+
+        </article>
+
+    </main>
+    <script type="module" src="./script/main.js"></script>
 </body>
+
 </html>

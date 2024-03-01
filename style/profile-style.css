@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+
+    --transition-speed: .2s;
+    --transition-slower-speed: .4s;
+
+    --main-background-color: #282828;
+    --main-dark-color--tinted: rgba(20, 21, 22, .3);
+    --main-dark-color--more-tinted: rgba(20, 21, 22, .6);
+    --main-dark-color--transparent: rgba(20, 21, 22, 0);
+    --main-dark-color: #141516;
+    --main-light-color: #F6F7F2;
+    --main-light-color--tinted: rgb(246, 247, 242, .4);
+    --star-outline-color: #60A7C0;
+    --primary-color: #111c40;
+    --secondary-color: #DE9733;
+    --nav-background-color: #2B2B2B;
+    --white-color: #FFF;
+    --black-color: #000;
+    --button-background-color: #D9D9D9;
+    --button-color: #222222;
+
+
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+h2 {
+    color: var(--main-light-color);
+    text-align: center;
+    font-size:1.5rem;
+}
+
+.profile-section {
+    background: var(--main-dark-color);
+    display: flex;
+    margin: auto;
+    width: 100vw;
+    flex-flow: column;
+}
+
+.profile-section__name {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1.5rem 0;
+    color: var(--main-light-color);
+}
+
+
+.watchlist,
+.favourites-list {
+    padding: 1rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    row-gap:.5rem;
+    border:1px solid var(--main-light-color);
+    border-radius:5px;
+    margin:.5rem;
+    padding:.5rem;
+    transition: all var(--transition-speed);
+}
+
+
+
+@media(max-width: 600px) {
+
+    .profile-section__change-name-btn {
+        margin: auto;
+        font-size: 1.5rem;
+    }
+}
